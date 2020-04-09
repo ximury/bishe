@@ -25,6 +25,8 @@ public class MainTabViewActivity extends AppCompatActivity implements View.OnCli
 
     private FragmentMyself myself;
     private FragmentSearch search;
+    private FragmentShow show;
+    private FragmentHome home;
 
     private FragmentManager fragmentManager;
     @Override
@@ -55,11 +57,11 @@ public class MainTabViewActivity extends AppCompatActivity implements View.OnCli
     }
     //隐藏所有Fragment
     private void hideAllFragment(FragmentTransaction fragmentTransaction){
-        if(fgt1 != null){
-            fragmentTransaction.hide(fgt1);
+        if(home != null){
+            fragmentTransaction.hide(home);
         }
-        if(fgt2 != null){
-            fragmentTransaction.hide(fgt2);
+        if(show != null){
+            fragmentTransaction.hide(show);
         }
         if(search != null){
             fragmentTransaction.hide(search);
@@ -86,11 +88,11 @@ public class MainTabViewActivity extends AppCompatActivity implements View.OnCli
                 textView1.setText("首页");
                 setSelected();
                 txt_home.setSelected(true);
-                if (fgt1==null){
-                    fgt1=new FragmentTest("第一个Fragment");
-                    fragmentTransaction.add(R.id.content, fgt1);
+                if (home==null){
+                    home=new FragmentHome();
+                    fragmentTransaction.add(R.id.content, home);
                 }else {
-                    fragmentTransaction.show(fgt1);
+                    fragmentTransaction.show(home);
                 }
                 break;
             case R.id.txt_part:
@@ -98,11 +100,11 @@ public class MainTabViewActivity extends AppCompatActivity implements View.OnCli
                 textView2.setText("兼职秀");
                 setSelected();
                 txt_part.setSelected(true);
-                if (fgt2==null){
-                    fgt2=new FragmentTest("第二个Fragment");
-                    fragmentTransaction.add(R.id.content, fgt2);
+                if (show==null){
+                    show=new FragmentShow();
+                    fragmentTransaction.add(R.id.content, show);
                 }else {
-                    fragmentTransaction.show(fgt2);
+                    fragmentTransaction.show(show);
                 }
                 break;
             case R.id.txt_find:
